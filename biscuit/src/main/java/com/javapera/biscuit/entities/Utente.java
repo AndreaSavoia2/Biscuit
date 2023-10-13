@@ -23,12 +23,12 @@ public class Utente {
     @Column(name="img_profilo", nullable = false, length = 100)
     private String img_profilo;
 
-    public Utente(String username, String email, String password, String img_profilo) {
+    /*public Utente(String username, String email, String password, String img_profilo) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.img_profilo = img_profilo;
-    }
+    }*/
 
     public int getId_untente() {
         return id_utente;
@@ -70,7 +70,7 @@ public class Utente {
         this.img_profilo = img_profilo;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Utente{" +
                 "id_utente=" + id_utente +
@@ -79,5 +79,5 @@ public class Utente {
                 ", password='" + password + '\'' +
                 ", img_profilo='" + img_profilo + '\'' +
                 '}';
-    }
+    }*/
 }

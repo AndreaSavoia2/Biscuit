@@ -12,13 +12,14 @@ import java.util.List;
 public class UtenteServiceIMPL implements UtenteService {
 
 
+    @Autowired
     private UtenteDAO dao;
 
-    @Autowired
+    /*@Autowired
     public UtenteServiceIMPL(UtenteDAO dao) {
         this.dao = dao;
     }
-
+*/
     @Override
     public List<Utente> getUtente() {
         return dao.findAll();
