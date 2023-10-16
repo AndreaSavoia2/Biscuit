@@ -50,8 +50,8 @@ public class Utente {
         return img_profilo;
     }
 
-    public void setId_untente(int id_untente) {
-        this.id_utente = id_untente;
+    public void setId_utente(int id_utente) {
+        this.id_utente = id_utente;
     }
 
     public void setUsername(String username) {

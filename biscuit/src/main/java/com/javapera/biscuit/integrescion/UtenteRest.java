@@ -9,25 +9,29 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api")
 public class UtenteRest {
 
-    @Autowired
+
     private UtenteService service;
 
-    @GetMapping("utenti")
+    @Autowired
+    public UtenteRest(UtenteService service) {
+        this.service = service;
+    }
+
+    @GetMapping("${indirizzo.utente}")
     public List<Utente> getUtente(){
         return service.getUtente();
     }
 
     @CrossOrigin
-    @PostMapping("utenti")
+    @PostMapping("${indirizzo.utente}")
     public Utente addUtente(@RequestBody Utente u){
         return service.addUtente(u);
     }
 
     @CrossOrigin
-    @GetMapping("utenti/{email}")
+    @GetMapping("${indirizzo.utente}/{email}")
     public List<Utente> UtenteByEmail(@PathVariable String email){
         return service.findUtenteEmail(email);
     }
