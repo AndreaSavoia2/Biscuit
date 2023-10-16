@@ -36,14 +36,10 @@ public class UtenteServiceIMPL implements UtenteService {
     }
 
     @Override
-    public void cambiaPassword(String email) {
-        Optional<Utente> optionalUtente = Optional.ofNullable(dao.getUtenteByEmail(email));
-
-        if (optionalUtente.isPresent()) {
-            Utente utente = optionalUtente.get();
-            utente.setPassword("123");
-            dao.save(utente);
-        }
+    public void cambiaPassword(String email, String password) {
+        Utente utente = dao.getUtenteByEmail(email);
+        utente.setPassword(password);
+        dao.save(utente);
     }
 
 

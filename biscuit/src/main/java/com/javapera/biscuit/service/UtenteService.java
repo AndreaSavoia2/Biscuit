@@ -13,6 +13,6 @@ public interface UtenteService {
 
     Utente findUtenteEmail(String email);
 
-    void cambiaPassword(String email);
+    void cambiaPassword(String email, String password);
 
 }

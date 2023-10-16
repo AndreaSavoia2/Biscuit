@@ -19,6 +19,7 @@ public class UtenteRest {
         this.service = service;
     }
 
+    @CrossOrigin
     @GetMapping("${indirizzo.utente}")
     public List<Utente> getUtente(){
         return service.getUtente();
@@ -31,8 +32,16 @@ public class UtenteRest {
     }
 
     @CrossOrigin
+    @PutMapping("${indirizzo.utente}")
+    public void aggiornaPassword(@RequestBody String email, String Password){
+       service.cambiaPassword(email, Password);
+    }
+
+    @CrossOrigin
     @GetMapping("${indirizzo.utente}/{email}")
     public Utente UtenteByEmail(@PathVariable String email){
         return service.findUtenteEmail(email);
     }
+
+
 }
