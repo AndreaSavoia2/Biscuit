@@ -38,8 +38,14 @@ public class UtenteServiceIMPL implements UtenteService {
     @Override
     public void cambiaPassword(String email, String password) {
         Utente utente = dao.getUtenteByEmail(email);
+        /*if (utente != null) {*/
         utente.setPassword(password);
         dao.save(utente);
+        /*    return true;
+        } else {
+            return false;
+        }*/
+
     }
 
 

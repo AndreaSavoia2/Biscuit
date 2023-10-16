@@ -1,0 +1,36 @@
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Cambio Password</title>
+</head>
+<body>
+    <h1>Cambio Password</h1>
+    <form id="cambiaPasswordForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required><br>
+
+        <label for="password">Nuova Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Cambia Password</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("cambiaPasswordForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            fetch("http://localhost:9000/api/utenti?email=" + email + "&password=" + password, {
+                method: "PUT"
+            })
+            
+        });
+    </script>
+</body>
+</html>

@@ -4,6 +4,8 @@ package com.javapera.biscuit.integrescion;
 import com.javapera.biscuit.entities.Utente;
 import com.javapera.biscuit.service.UtenteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,8 +35,15 @@ public class UtenteRest {
 
     @CrossOrigin
     @PutMapping("${indirizzo.utente}")
-    public void aggiornaPassword(@RequestBody String email, String Password){
-       service.cambiaPassword(email, Password);
+    public void cambiaPassword(@RequestParam String email, @RequestParam String password) {
+        service.cambiaPassword(email, password);
+
+        /* boolean passwordCambiata = service.cambiaPassword(email, password);
+        if (passwordCambiata) {
+            return ResponseEntity.status(HttpStatus.OK).body("Password cambiata con successo");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Utente non trovato");
+        }*/
     }
 
     @CrossOrigin
