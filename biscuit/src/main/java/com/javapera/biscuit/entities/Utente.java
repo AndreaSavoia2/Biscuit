@@ -30,7 +30,7 @@ public class Utente {
         this.img_profilo = img_profilo;
     }*/
 
-    public int getId_untente() {
+    public int getId_utente() {
         return id_utente;
     }
 
