@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UtenteServiceIMPL implements UtenteService {
@@ -30,7 +31,20 @@ public class UtenteServiceIMPL implements UtenteService {
     }
 
     @Override
-    public List<Utente> findUtenteEmail(String email) {
+    public Utente findUtenteEmail(String email) {
         return dao.getUtenteByEmail(email);
     }
+
+    @Override
+    public void cambiaPassword(String email) {
+        Optional<Utente> optionalUtente = Optional.ofNullable(dao.getUtenteByEmail(email));
+
+        if (optionalUtente.isPresent()) {
+            Utente utente = optionalUtente.get();
+            utente.setPassword("123");
+            dao.save(utente);
+        }
+    }
+
+
 }

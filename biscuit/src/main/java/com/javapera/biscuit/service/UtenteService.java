@@ -11,6 +11,8 @@ public interface UtenteService {
 
     Utente addUtente(Utente utente);
 
-    List<Utente> findUtenteEmail(String email);
+    Utente findUtenteEmail(String email);
+
+    void cambiaPassword(String email);
 
 }

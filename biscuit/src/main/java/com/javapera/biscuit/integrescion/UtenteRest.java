@@ -32,7 +32,7 @@ public class UtenteRest {
 
     @CrossOrigin
     @GetMapping("${indirizzo.utente}/{email}")
-    public List<Utente> UtenteByEmail(@PathVariable String email){
+    public Utente UtenteByEmail(@PathVariable String email){
         return service.findUtenteEmail(email);
     }
 }

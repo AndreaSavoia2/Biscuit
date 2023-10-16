@@ -20,7 +20,7 @@ public class Utente {
     @Column(name="password",nullable = false, length = 100)
     private String password;
 
-    @Column(name="img_profilo", nullable = false, length = 100)
+    @Column(name="img_profilo", length = 100)
     private String img_profilo;
 
     /*public Utente(String username, String email, String password, String img_profilo) {
