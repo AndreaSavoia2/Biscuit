@@ -31,21 +31,28 @@ public class UtenteServiceIMPL implements UtenteService {
     }
 
     @Override
-    public Utente findUtenteEmail(String email) {
-        return dao.getUtenteByEmail(email);
+    public boolean changePassword(String email, String password) {
+        Utente utente = dao.getUtenteByEmail(email);
+        if (utente != null) {
+            utente.setPassword(password);
+            dao.save(utente);
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
     @Override
-    public void cambiaPassword(String email, String password) {
-        Utente utente = dao.getUtenteByEmail(email);
-        /*if (utente != null) {*/
-        utente.setPassword(password);
-        dao.save(utente);
-        /*    return true;
-        } else {
-            return false;
-        }*/
+    public boolean checkUser(String username) {
+        Utente utente = dao.getUtenteByUsername(username);
+        return utente == null;
+    }
 
+    @Override
+    public boolean checkEmail(String email) {
+        Utente utente = dao.getUtenteByEmail(email);
+        return utente == null;
     }
 
 

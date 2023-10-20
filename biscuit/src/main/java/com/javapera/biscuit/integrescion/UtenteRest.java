@@ -35,22 +35,19 @@ public class UtenteRest {
 
     @CrossOrigin
     @PutMapping("${indirizzo.utente}")
-    public void cambiaPassword(@RequestParam String email, @RequestParam String password) {
-        service.cambiaPassword(email, password);
-
-        /* boolean passwordCambiata = service.cambiaPassword(email, password);
-        if (passwordCambiata) {
-            return ResponseEntity.status(HttpStatus.OK).body("Password cambiata con successo");
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Utente non trovato");
-        }*/
+    public boolean cambiaPassword(@RequestParam String email, @RequestParam String password) {
+        return service.changePassword(email, password);
     }
 
     @CrossOrigin
-    @GetMapping("${indirizzo.utente}/{email}")
-    public Utente UtenteByEmail(@PathVariable String email){
-        return service.findUtenteEmail(email);
+    @GetMapping("controlla-email")
+    public @ResponseBody boolean ControllaEmail(@RequestParam String email){
+        return service.checkEmail(email);
     }
 
-
+    @CrossOrigin
+    @GetMapping("controlla-username")
+    public @ResponseBody boolean ControllaUsername(@RequestParam String username){
+        return service.checkUser(username);
+    }
 }

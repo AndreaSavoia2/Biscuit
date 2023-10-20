@@ -11,8 +11,10 @@ public interface UtenteService {
 
     Utente addUtente(Utente utente);
 
-    Utente findUtenteEmail(String email);
+    boolean changePassword(String email, String password);
 
-    void cambiaPassword(String email, String password);
+    boolean checkUser(String username);
+
+    boolean checkEmail(String email);
 
 }

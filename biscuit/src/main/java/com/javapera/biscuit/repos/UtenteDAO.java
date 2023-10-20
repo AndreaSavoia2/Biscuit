@@ -12,4 +12,8 @@ public interface UtenteDAO extends JpaRepository<Utente, Integer> {
 
     @Query("SELECT u FROM Utente u WHERE u.email = :email")
     Utente getUtenteByEmail(@Param("email") String email);
+
+    @Query("SELECT u FROM Utente u WHERE u.username = :username")
+    Utente getUtenteByUsername(@Param("username") String username);
+
 }
