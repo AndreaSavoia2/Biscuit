@@ -3,34 +3,38 @@ package com.javapera.biscuit.entities;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="utente")
+@Table(name="user")
 public class Utente {
 
     @Id
-    @Column(name="id_utente")
+    @Column(name="id_user")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_utente;
 
-    @Column(name="username",nullable = false,unique = true , length = 50)
+    @Column(name="username")
     private String username;
 
-    @Column(name="email",nullable = false,unique = true , length = 100)
+    @Column(name="email")
     private String email;
 
-    @Column(name="password",nullable = false, length = 100)
+    @Column(name="password")
     private String password;
 
-    @Column(name="img_profilo", length = 100)
-    private String img_profilo;
+    @Column(name="gender")
+    private String gender;
+
+    @Column(name="birthdate")
+    private String birthdate;
 
     public Utente() {
     }
 
-    public Utente(String username, String email, String password, String img_profilo) {
+    public Utente(String username, String email, String password, String gender, String birthdate) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.img_profilo = img_profilo;
+        this.gender = gender;
+        this.birthdate = birthdate;
     }
 
     public int getId_utente() {
@@ -49,10 +53,6 @@ public class Utente {
         return password;
     }
 
-    public String getImg_profilo() {
-        return img_profilo;
-    }
-
     public void setId_utente(int id_utente) {
         this.id_utente = id_utente;
     }
@@ -69,8 +69,20 @@ public class Utente {
         this.password = password;
     }
 
-    public void setImg_profilo(String img_profilo) {
-        this.img_profilo = img_profilo;
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
     }
 
     @Override
@@ -80,7 +92,8 @@ public class Utente {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", img_profilo='" + img_profilo + '\'' +
+                ", gender='" + gender + '\'' +
+                ", birthdate='" + birthdate + '\'' +
                 '}';
     }
 }

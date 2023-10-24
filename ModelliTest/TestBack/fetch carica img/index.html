@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Caricamento Immagine</title>
+</head>
+<body>
+    <input type="file" id="imageInput">
+    <button id="uploadButton">Carica Immagine</button>
+    <div id="status"></div>
+
+    
+    <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+    const imageInput = document.getElementById('imageInput');
+    const uploadButton = document.getElementById('uploadButton');
+    const status = document.getElementById('status');
+
+    uploadButton.addEventListener('click', async () => {
+        const file = imageInput.files[0];
+
+        // Crea un oggetto FormData per inviare il file al server
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const response = await fetch('http://localhost:9000/api/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+        } catch (error) {
+            console.error(error);
+            status.innerHTML = 'Si è verificato un errore durante il caricamento.';
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

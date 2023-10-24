@@ -55,8 +55,8 @@ public class BiscuitApplication {
 					}
 				}
 				case "/console add.utente" -> {
-					Utente u = new Utente(in.leggiStringaLow("Username:"),in.leggiStringaLow("email:"),in.leggiStringaLow("password:"),"");
-					service.addUtente(u);
+					/*Utente u = new Utente(in.leggiStringaLow("Username:"),in.leggiStringaLow("email:"),in.leggiStringaLow("password:"),"");
+					service.addUtente(u);*/
 				}
 				case "/console update.utente.password -check" -> {
 					boolean check = service.changePassword(in.leggiStringaLow("email:"),in.leggiStringaLow("new password:"));
